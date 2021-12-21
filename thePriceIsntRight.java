@@ -66,6 +66,7 @@ public class thePriceIsntRight {
         
         // Results time
         System.out.println("\nThe Differences are: ");
+        comOne = 3000; comTwo = 3000; comThree = 3000; usersGuess = 3000;
         // User
         if (usersGuess > itemCost) {
             System.out.println(userName + ": OVER");
@@ -104,11 +105,15 @@ public class thePriceIsntRight {
         }
 
         // Determining the winner
-        Collections.sort(winnerList);
+        if (overCount < 4) {
+            Collections.sort(winnerList);
         winner = winnerList.get(winnerList.size()-1);
+        }
+        
+        
 
         // Ugly if-else madness to announce winner
-        if (overCount >= 4) {
+        if (overCount == 4) {
             System.out.println("WOW you ALL suck, NOBODY WINS!!!");
         } else if (usersGuess == winner) {
             System.out.println("CONGRATS, " + userName + " is the winner!!!");
